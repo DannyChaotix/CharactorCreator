@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Ven 11 Octobre 2019 à 16:09
+-- Généré le :  Ven 11 Octobre 2019 à 16:18
 -- Version du serveur :  5.7.19-log
 -- Version de PHP :  5.6.31
 
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `habiletes`
+-- Structure de la table `hablietes`
 --
 
-CREATE TABLE IF NOT EXISTS `habiletes` (
+CREATE TABLE IF NOT EXISTS `hablietes` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `Description` varchar(500) NOT NULL,
@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS `habiletes` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `habiletes`
+-- Contenu de la table `hablietes`
 --
 
-INSERT INTO `habiletes` (`id`, `name`, `Description`, `ShortDesc`) VALUES
-(1, 'Fort', 'Vous avez une force phénoménale! Vous pouvez transporter plus et soulever beaucoup plus que la norme!', 'Vous etes plus fort');
+INSERT INTO `hablietes` (`id`, `name`, `Description`, `ShortDesc`) VALUES
+(1, 'Fort', 'Vous avez une force phénoménale! Vous pouver transporter et soulever beaucoup plus que les autres', 'Vous etes très fort!');
 
 -- --------------------------------------------------------
 
@@ -97,9 +97,9 @@ INSERT INTO `users` (`id`, `Username`, `email`, `password`, `created`, `modified
 --
 
 --
--- Index pour la table `habiletes`
+-- Index pour la table `hablietes`
 --
-ALTER TABLE `habiletes`
+ALTER TABLE `hablietes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -126,9 +126,9 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT pour la table `habiletes`
+-- AUTO_INCREMENT pour la table `hablietes`
 --
-ALTER TABLE `habiletes`
+ALTER TABLE `hablietes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT pour la table `personnage`
