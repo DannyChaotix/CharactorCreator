@@ -41,21 +41,17 @@ class AppController extends Controller
     {
         // Existing code
 
+        $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
-            'authenticate' => [
-                'Form' => [
-                    'fields' => [
-                        'username' => 'email',
-                        'password' => 'password'
-                    ]
-                ]
+            'loginRedirect' => [
+                'controller' => 'Personnage',
+                'action' => 'index'
             ],
-            'loginAction' => [
+            'logoutRedirect' => [
                 'controller' => 'Users',
                 'action' => 'login'
-            ],
-             // If unauthorized, return them to page they were just on
-            'unauthorizedRedirect' => $this->referer()
+                
+            ]
         ]);
 
         // Allow the display action so our PagesController

@@ -7,6 +7,8 @@ use Cake\ORM\Entity;
  * User Entity
  *
  * @property int $id
+ * @property int $rank
+ * @property string $Uname
  * @property string $email
  * @property string $password
  * @property \Cake\I18n\FrozenTime|null $created
@@ -26,12 +28,16 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'email' => true,
-        'password' => true,
-        'created' => true,
-        'modified' => true,
-        'articles' => true
+        'id' => true,
+        '*' => false,
     ];
+    
+     protected function _setPassword($password)
+    {
+        if (strlen($password) > 0) {
+            return (new DefaultPasswordHasher)->hash($password);
+        }
+    }
 
     /**
      * Fields that are excluded from JSON versions of the entity.
