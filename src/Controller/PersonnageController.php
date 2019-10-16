@@ -50,6 +50,7 @@ class PersonnageController extends AppController
         $personnage = $this->Personnage->newEntity();
         if ($this->request->is('post')) {
             $personnage = $this->Personnage->patchEntity($personnage, $this->request->getData());
+            $personnage->user_id = $this->Auth->user('id');
             if ($this->Personnage->save($personnage)) {
                 $this->Flash->success(__('The personnage has been saved.'));
 
@@ -103,4 +104,24 @@ class PersonnageController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function isAuthorized($user)
+{
+    // All registered users can add articles
+    // Prior to 3.4.0 $this->request->param('action') was used.
+    if ($this->request->getParam('action') === 'add') {
+        return true;
+    }
+
+    // The owner of an article can edit and delete it
+    // Prior to 3.4.0 $this->request->param('action') was used.
+    if (in_array($this->request->getParam('action'), ['edit', 'delete'])) {
+        // Prior to 3.4.0 $this->request->params('pass.0')
+        $personnageId = (int)$this->request->getParam('pass.0');
+        if ($this->Personnage->isOwnedBy($personnageId, $user['id'])) {
+            return true;
+        }
+    }
+
+    return parent::isAuthorized($user);
+}
 }

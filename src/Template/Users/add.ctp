@@ -16,10 +16,10 @@
         <legend><?= __('Add User') ?></legend>
         <?php
             
-            echo $this->Form->control('Uname');
+            echo $this->Form->control('username');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
-            echo $this->Form->control('rank', [ 'options' => ['admin' => 'Admin', 'author' => 'Author']])
+            echo $this->Form->control('rank', [ 'options' => ['admin' => 'Admin', 'utilisateur' => 'Utilisateur']])
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

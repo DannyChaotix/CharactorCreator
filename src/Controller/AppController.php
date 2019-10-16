@@ -58,10 +58,16 @@ class AppController extends Controller
         // continues to work. Also enable the read only actions.
         $this->Auth->allow(['display', 'view', 'index']);
     }
-     public function isAuthorized($user) {
-        // By default deny access.
-        return false;
+public function isAuthorized($user)
+{
+    // Admin can access every action
+    if (isset($user['rank']) && $user['rank'] === 'Admin') {
+        return true;
     }
+
+    // Default deny
+    return false;
+}
 
     public function changeLang($lang = 'en_US') {
         I18n::setLocale($lang);

@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
 
 /**
  * User Entity
@@ -28,8 +29,8 @@ class User extends Entity
      * @var array
      */
     protected $_accessible = [
-        'id' => true,
-        '*' => false,
+        'id' => false,
+        '*' => true,
     ];
     
      protected function _setPassword($password)
