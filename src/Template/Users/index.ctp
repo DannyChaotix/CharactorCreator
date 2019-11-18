@@ -8,6 +8,7 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Personnages'), ['controller' => 'personnage','action' => 'index']) ?></li>
     </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">
@@ -30,7 +31,7 @@
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= $this->Number->format($user->rank) ?></td>
-                <td><?= h($user->Uname) ?></td>
+                <td><?= h($user->username) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->password) ?></td>
                 <td><?= h($user->created) ?></td>

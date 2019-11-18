@@ -1,5 +1,5 @@
 <?php
-$urlToRestApi = $this->Url->build('/api/cocktails', true);
+$urlToRestApi = $this->Url->build('/api/personnages', true);
 echo $this->Html->scriptBlock('var urlToRestApi = "' . $urlToRestApi . '";', ['block' => true]);
 echo $this->Html->script('Personnage/index', ['block' => 'scriptBottom']);
 ?>
@@ -7,9 +7,9 @@ echo $this->Html->script('Personnage/index', ['block' => 'scriptBottom']);
 <div class="container">
     <div class="row">
         <div class="panel panel-default personnage-content">
-            <div class="panel-heading">Personnages <a href="javascript:void(0);" class="glyphicon glyphicon-plus" id="addLink" onclick="javascript:$('#addForm').slideToggle();">Add</a></div>
+            <div class="panel-heading">Characters <a href="javascript:void(0);" class="glyphicon glyphicon-plus" id="addLink" onclick="javascript:$('#addForm').slideToggle();">Add</a></div>
             <div class="panel-body none formData" id="addForm">
-                <h2 id="actionLabel">Add Personnage</h2>
+                <h2 id="actionLabel">Add Character</h2>
                 <form class="form" id="personnageAddForm" enctype='application/json'>
                     <div class="form-group">
                         <label>Name</label>
@@ -20,12 +20,12 @@ echo $this->Html->script('Personnage/index', ['block' => 'scriptBottom']);
                         <input type="text" class="form-control" name="description" id="description"/>
                     </div>
                     <a href="javascript:void(0);" class="btn btn-warning" onclick="$('#addForm').slideUp();">Cancel</a>
-                    <a href="javascript:void(0);" class="btn btn-success" onclick="cocktailAction('add')">Add Cocktail</a>
-                    <!-- input type="submit" class="btn btn-success" id="addButton" value="Add Cocktail" -->
+                    <a href="javascript:void(0);" class="btn btn-success" onclick="personnageAction('add')">Add Personnage</a>
+                    <!-- input type="submit" class="btn btn-success" id="addButton" value="Add Personnage" -->
                 </form>
             </div>
             <div class="panel-body none formData" id="editForm">
-                <h2 id="actionLabel">Edit Personnage</h2>
+                <h2 id="actionLabel">Edit Character</h2>
                 <form class="form" id="personnageEditForm" enctype='application/json'>
                     <div class="form-group">
                         <label>Name</label>
@@ -38,7 +38,7 @@ echo $this->Html->script('Personnage/index', ['block' => 'scriptBottom']);
                     <input type="hidden" class="form-control" name="id" id="idEdit"/>
                     <a href="javascript:void(0);" class="btn btn-warning" onclick="$('#editForm').slideUp();">Cancel</a>
                     <a href="javascript:void(0);" class="btn btn-success" onclick="personnageAction('edit')">Update Personnage</a>
-                    <!-- input type="submit" class="btn btn-success" id="editButton" value="Update Cocktail" -->
+                    <!-- input type="submit" class="btn btn-success" id="editButton" value="Update Personnage" -->
                 </form>
             </div>
             <table class="table table-striped">
@@ -60,14 +60,14 @@ echo $this->Html->script('Personnage/index', ['block' => 'scriptBottom']);
                             <td><?php echo $personnage['name']; ?></td>
                             <td><?php echo $personnage['description']; ?></td>
                             <td>
-                                <a href="javascript:void(0);" class="glyphicon glyphicon-edit" onclick="editPersonnage('<?php echo $cocktail['id']; ?>')"></a>
-                                <a href="javascript:void(0);" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete data?') ? cocktailAction('delete', '<?php echo $cocktail['id']; ?>') : false;"></a>
+                                <a href="javascript:void(0);" class="glyphicon glyphicon-edit" onclick="editPersonnage('<?php echo $personnage['id']; ?>')"></a>
+                                <a href="javascript:void(0);" class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure to delete data?') ? personnageAction('delete', '<?php echo $personnage['id']; ?>') : false;"></a>
                             </td>
                         </tr>
                         <?php
                     endforeach;
                     ?>
-                    <tr><td colspan="5">No personnage(s) found......</td></tr>
+                    <tr><td colspan="5">No Character(s) found......</td></tr>
                 </tbody>
             </table>
         </div>
