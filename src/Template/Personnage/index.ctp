@@ -20,7 +20,7 @@ echo $this->Html->script('Personnage/index', ['block' => 'scriptBottom']);
                         <input type="text" class="form-control" name="description" id="description"/>
                     </div>
                     <a href="javascript:void(0);" class="btn btn-warning" onclick="$('#addForm').slideUp();">Cancel</a>
-                    <a href="javascript:void(0);" class="btn btn-success" onclick="personnageAction('add')">Add Personnage</a>
+                    <a href="javascript:void(0);" class="btn btn-success" onclick="personnageAction('add')">Add Character</a>
                     <!-- input type="submit" class="btn btn-success" id="addButton" value="Add Personnage" -->
                 </form>
             </div>
